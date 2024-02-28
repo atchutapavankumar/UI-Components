@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="bootstrap/css/fontawesome.css">
+    <script src="bootstrap/js/bootstrap.bundle.js" async></script>
+    <title>Components</title>
+    <style>
+      .custom-card-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .custom-card {
+            max-width: 400px;
+            margin: auto;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #ffffff;
+        }
+
+        .custom-card img {
+            width: 100%;
+            border-radius: 50%;
+        }
+
+        .custom-card-title {
+            color: #6c757d;
+            font-size: 18px;
+        }
+
+        .custom-card-button {
+            border: none;
+            outline: 0;
+            display: inline-block;
+            padding: 8px;
+            color: white;
+            background-color: $accent;
+            text-align: center;
+            cursor: pointer;
+            width: 80%;
+            font-size: 18px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .custom-card-button:hover {
+            background-color: $otherAccent;
+        }
+
+        .custom-card-link {
+            text-decoration: none;
+            font-size: 22px;
+            color: #000000;
+        }
+
+        .custom-card-link:hover {
+            opacity: 0.7;
+        }
+      #toggleContainer {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 10vh;
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      background-color: black; /* Default background color */
+      transition: background-color 0.3s ease; /* Smooth transition */
+    }
+
+    .toggle-container {
+      position: relative;
+      display: inline-block;
+    }
+
+    .toggle-input {
+      display: none;
+    }
+
+    .toggle-label {
+      display: block;
+      width: 60px;
+      height: 30px;
+      border-radius: 15px;
+      position: relative;
+      cursor: pointer;
+    }
+
+    .toggle-input:checked + .toggle-label {
+      background-color: white; /* Background color when toggle is ON */
+    }
+
+    .toggle-thumb {
+      content: "";
+      display: block;
+      width: 28px;
+      height: 28px;
+      background-color: #66cc66;
+      border-radius: 50%;
+      position: absolute;
+      top: 1px;
+      left: 1px;
+      transition: transform 0.3s ease;
+    }
+
+    .toggle-input:checked + .toggle-label .toggle-thumb {
+      transform: translateX(30px);
+    }
+
+    .toggle-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 14px;
+      color: #fff; /* Text color */
+    }
+
+    .toggle-input:checked + .toggle-label .toggle-text::before {
+      content: "ON";
+    }
+
+    .toggle-input:not(:checked) + .toggle-label .toggle-text::before {
+      content: "OFF";
+    }
+        #custom-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 1vh;
+        margin: 0;
+    }
+
+        .datepicker-label {
+            margin-right: 10px;
+        }
+
+        .styled-datepicker {
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+            outline: none;
+            transition: border-color 0.3s ease-in-out;
+        }
+
+        .styled-datepicker:hover,
+        .styled-datepicker:focus {
+            border-color: #3498db;
+        }
+
+        #myProgress {
+            width: 100%;
+            background-color: #ddd;
+        }
+
+        #myBar {
+            width: 1%;
+            height: 30px;
+            background-color: #04AA6D;
+        }
+        .containr {
+          margin-top: 25px;
+        }
+
+        .pagination-outer {
+            text-align: center;
+        }
+
+        .pagination {
+            background-color: #fff;
+            border-radius: 25px !important;
+            overflow: hidden;
+            border: none !important;
+        }
+        
+        a:focus,
+        a:active {
+            outline: none !important;
+            box-shadow: none !important;
+        }
+        
+        .fa {
+            font-size: 11px ;
+            vertical-align: middle !important;
+            color: black;
+        }
+
+        .pagination li.active .fa {
+            color: #fff !important;
+        }
+
+        .pagination li a.page-link {
+            color: #505050;
+            background-color: transparent;
+            font-size: 17px;
+            font-weight: 600;
+            padding: 17px 25px;
+            border: none;
+            transition: all 0.3s ease 0s;
+        }
+
+        .fa-home {
+            transform: scale(1.4, 1.4) ;
+        }
+
+        .pagination li:last-child a.page-link {
+            border: none;
+        }
+
+        .pagination li.active a.page-link,
+        .pagination li a.page-link:hover,
+        .pagination li.active a.page-link:hover {
+            background-color: transparent;
+        }
+
+        .pagination li a.page-link:after {
+            content: '';
+            background-color: #42A5F5 !important;
+            height: 100%;
+            width: 100%;
+            transform: scaleY(0);
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            z-index: -1;
+            transition: all 0.3s;
+        }
+
+        .pagination li.active a.page-link:after,
+        .pagination li a.page-link:hover:after,
+        .pagination li.active a.page-link:hover:after {
+            transform: scaleY(1);
+            border-radius: 25px !important;
+
+        }      
+        @media (max-width: 767px) {
+          
+        .pagination li a.page-link {            
+            padding: 1px 1px !important;
+          } 
+
+        .fa{
+            font-size: 9px !important;
+          }
+
+        li a {
+            font-size: 12px !important;
+        }
+        
+        .page-item+.page-item {
+            padding-left: 0 !important;
+        }
+      }
+    </style>
+    <script>
+        var i = 0;
+        function move() {
+          if (i == 0) {
+            i = 1;
+            var elem = document.getElementById("myBar");
+            var width = 1;
+            var id = setInterval(frame, 10);
+            function frame() {
+              if (width >= 100) {
+                clearInterval(id);
+                i = 0;
+              } else {
+                width++;
+                elem.style.width = width + "%";
+              }
+            }
+          }
+        }
+    </script>
+    <script>
+        $(document).ready(function () {
+            $('#datepicker').datepicker();
+        });
+    </script>
+</head>
+<body>
+    <h1><center>Carousel component</center></h1>
+    <h2>Defination</h2>
+    <p class="m-3">A slider component in web development is a graphical user interface element that consists of a track and a movable handle, allowing users to interactively select a value within a predefined range. Typically, the handle can be dragged horizontally or vertically along the track, providing a visual and intuitive means for users to input a desired numeric value.</p>
+    <h2>Functionality</h2>
+    <p class="m-3">A carousel section in web development is a dynamic and interactive component that displays a series of images or content items in a rotating manner. Comprising a container and a set of slides, a carousel allows users to navigate through the content by manually controlling the progression or by relying on automated transitions. The carousel is often used to showcase a collection of images, products, or information in a visually appealing and space-efficient manner.</p>
+    <h2>Uses</h2>
+    <p class="m-3">They are commonly employed in homepage banners to highlight featured products or promotions. E-commerce websites leverage carousels to showcase various product categories, special offers, or customer testimonials. Carousels are also utilized in portfolio websites to display a portfolio of projects or in news websites for presenting a series of news articles or headlines in a compact space.</p>
+    <a href="https://www.amazon.com/" target="_blank">Carousel Component Reference</a>
+    <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner img-fluid">
+          <div class="carousel-item active">
+            <img src="D:\Bootstrap\bootstrap\media\main.jpg" class="d-block w-100 h-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+              <h5><b>Bapatla Engineering college</b></h5>
+            </div>
+          </div>
+          <div class="carousel-item img-fluid">
+            <img src="D:\Bootstrap\bootstrap\media\research.jpg" class="d-block w-100 h-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+              <h5><b>Department of Information Technology</b></h5>
+              <p><b>Bapatla Engineering college</b></p>
+            </div>
+          </div>
+          <div class="carousel-item img-fluid">
+            <img src="D:\Bootstrap\bootstrap\media\GEB.jpg" class="d-block w-100 h-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+              <h5><b>General Engineering Block</b></h5>
+              <p><b>Bapatla Engineering College</b></p>
+            </div>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+    <hr>
+    <h1><center>Footer component</center></h1>
+    <h2>Defination</h2>
+    <p class="m-3">A footer component in web development refers to the bottom section of a webpage, serving as a container for information and links that are consistent across multiple pages of the site. Typically, it contains details such as copyright notices, links to privacy policies, terms of service, and other legal information.</p>
+    <h2>Functionality</h2>
+    <p class="m-3">In terms of functionality, the footer is static and remains visible at the bottom of the page, regardless of scrolling. It is a stable reference point for users seeking important information or additional navigation options. Some footers also include dynamic elements, such as newsletters signup forms or recent blog posts, adding interactive features to enhance user engagement.</p>
+    <h2>Uses</h2>
+    <p class="m-3">The uses of a footer component are diverse. It is commonly employed to reinforce the website's branding and professionalism by displaying copyright information and legal disclaimers. The footer also improves website navigation by housing links to key pages, contact information, and social media profiles. Additionally, footers can contribute to search engine optimization (SEO) efforts by including links to relevant internal pages, helping search engines index and understand the site structure. Overall, the footer is a versatile component that contributes to the usability, aesthetics, and functionality of a web page.</p>
+    <a href="https://www.localshoppi.com/login" target="_blank">Footer Component Reference</a>
+    <section class="footer bg-info p-5 m-1 text-white" id="footer">
+        <div class="container">
+          <div class="grid">
+            <div class="row align-items-center">
+              <div class="col-md-4">
+                  <h6>ABOUT</h6>
+                  <img src="D:\localhappy\Media\footerlocalhap.png" width="100px" height="56px">
+                  <div class="m-2">
+                    <i class="fa fa-phone-alt icon">+91 8978783549</i>
+                  </div>
+                  <div class="m-2">
+                    <i class="fa fa-envelope">support@localhappy.com</i>
+                  </div>
+                  <div class="m-2">
+                    <i class="fa fa-user">Be a Merchant?
+                    </i>
+                  </div>
+                  <div class="m-2">
+                    <i class="fa fa-user">Be a franchise owner?</i>
+                  </div>
+              </div>
+              <div class="col-md-4">
+                <h6>INFORMATION</h6>
+                <div class="m-2">
+                  <P>About Us</P>
+                </div>
+                <div class="m-2">
+                  <p >Contact Us</p>
+                </div>
+                <div class="m-2">
+                  <p>Privacy Policy</p>
+                </div>
+                <div class="m-2">
+                  <p>Refund Policy</p>
+                </div>
+                <div class="m-2">
+                  <p>Terms & Conditions</p>
+                </div>
+                <div class="m-2">
+                  <p>Delivary Policy</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+              <h6>DOWNLOAD OUR APP</h6>
+              <div class="m-2">
+                <img src="D:\localhappy\Media\google-play.png" width="210px" height="80px">
+              </div>
+              <div class="m-2">
+                <img src="D:\localhappy\Media\appleimage.webp" width="180px" height="60px">
+              </div>
+              <div class="m-2 d-flex justify-content-around">
+                <i class="fab fa-facebook text-white"></i>
+                <i class="fab fa-instagram"></i>
+                <i class="fab fa-youtube"></i>
+                <i class="fab fa-linkedin"></i>
+                <i class="fab fa-twitter"></i>
+              </div>
+            </div>
+          </div>
+        </section>
+        <hr>
+    <h1><center>Accordian component</center></h1>
+    <h2>Defination</h2>
+    <p class="m-4">An accordion component in web development is a user interface element that organizes content in a collapsible and expandable manner. Comprising a series of panels, an accordion allows users to expand or collapse sections to reveal or hide related information. Each panel typically consists of a header and a content area, and only one panel is expanded at a time. The accordion is particularly useful for presenting information hierarchies, FAQs, or content categories in a space-efficient and organized manner.</p>
+    <h2>Functionality</h2>
+    <p class="m-4">Functionally, an accordion enables users to interact with content by clicking on the headers to expand or collapse individual panels. The accordion animation smoothly reveals or conceals content, creating a more dynamic and user-friendly experience. Some accordions offer additional features, such as allowing multiple panels to be open simultaneously or incorporating icons to indicate the state of each panel.</p>
+    <h2>Uses</h2>
+    <p class="m-4">Accordions find diverse uses in web design. They are commonly employed on FAQ pages to present a list of questions with answers hidden by default. In e-learning platforms, accordions can organize course modules or lesson content, making it easier for users to navigate through the material. Accordions are also utilized in product details on e-commerce sites, providing a concise and organized way to present specifications, features, and reviews. Overall, accordions enhance the accessibility and readability of content by allowing users to focus on specific sections while keeping the rest neatly tucked away.</p>
+    <a href="https://elfsight.com/accordion-faq-widget/examples/" target="_blank">Accordian Component Reference</a>
+    <div class="accordion" id="accordionExample">
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingOne">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+              Accordion Item #1
+            </button>
+          </h2>
+          <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+              <strong>This is the first item's accordion body.</strong>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingTwo">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+              Accordion Item #2
+            </button>
+          </h2>
+          <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+              <strong>This is the second item's accordion body.</strong>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingThree">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+              Accordion Item #3
+            </button>
+          </h2>
+          <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+              <strong>This is the third item's accordion body.</strong> 
+            </div>
+          </div>
+        </div>
+    </div>
+    <hr>
+    <h1><center>Buttons component</center></h1>
+    <h2>Defination</h2>
+    <p class="m-4">A button component in web development is a fundamental user interface element that serves as a clickable object, typically triggering an action when interacted with by the user. Buttons are essential for various interactive functionalities on websites and applications, allowing users to submit forms, navigate between pages, initiate processes, or perform specific actions. They are visually distinct, often styled with colors, shapes, or icons to attract user attention and indicate interactivity.</p>
+    <h2>Functionality</h2>
+    <p class="m-4">In terms of functionality, buttons respond to user input, such as clicks or taps, and execute the associated action. They may provide feedback through visual changes, such as color transitions or animations, to signify that an action is being processed. Buttons can be implemented using various HTML elements, such as button tag,  (anchor), or input tag (with the type attribute set to "button" or "submit"), and their behavior can be enhanced with JavaScript for more dynamic interactions.</p>
+    <h2>Uses</h2>
+    <p class="m-4">The uses of button components are diverse and integral to user engagement. Primary buttons are often used for important actions like submitting forms or confirming decisions, while secondary buttons may serve as cancel or reset options. In navigation, buttons facilitate the movement between pages or sections, enhancing the overall user experience. Additionally, buttons can be employed for modal interactions, toggling features, or initiating multimedia playback, contributing to the overall interactivity and functionality of a web page or application. Overall, buttons are foundational elements that play a crucial role in enabling user interaction and shaping the user interface of web applications.</p>
+    <center>
+        <button type="button" class="btn btn-primary">Primary</button>
+        <button type="button" class="btn btn-secondary">Secondary</button>
+        <button type="button" class="btn btn-success">Success</button>
+        <button type="button" class="btn btn-danger">Danger</button>
+        <button type="button" class="btn btn-warning">Warning</button>
+        <button type="button" class="btn btn-info">Info</button>
+        <button type="button" class="btn btn-light">Light</button>
+        <button type="button" class="btn btn-dark">Dark</button>
+        <button type="button" class="btn btn-link">Link</button>
+        <h1>Outline Buttons</h1>
+        <button type="button" class="btn btn-outline-primary">Primary</button>
+        <button type="button" class="btn btn-outline-secondary">Secondary</button>
+        <button type="button" class="btn btn-outline-success">Success</button>
+        <button type="button" class="btn btn-outline-danger">Danger</button>
+        <button type="button" class="btn btn-outline-warning">Warning</button>
+        <button type="button" class="btn btn-outline-info">Info</button>
+        <button type="button" class="btn btn-outline-light">Light</button>
+        <button type="button" class="btn btn-outline-dark">Dark</button>
+    </center>
+    <hr>
+    <h1><center>Breadcrumps component</center></h1>
+    <h2>Defination</h2>
+    <p class="m-4">A breadcrumb component in web development is a navigational aid that displays the user's current location within a website's hierarchy. It typically appears as a horizontal trail of links at the top of a webpage, indicating the path from the homepage to the current page. Each link in the breadcrumb corresponds to a higher-level page or category, allowing users to easily trace their steps back to previous levels of the website's structure.</p>
+    <h2>Functionality</h2>
+    <p class="m-4">Functionally, breadcrumbs provide a clear and concise representation of a user's location within a website. Users can click on any level of the breadcrumb to navigate directly to a higher-level page in the hierarchy, facilitating efficient navigation and preventing users from feeling disoriented within the site's structure. Additionally, breadcrumbs are dynamically generated based on the user's navigation path, ensuring accuracy and relevance.</p>
+    <h2>Uses</h2>
+    <p class="m-4">Breadcrumbs find various uses across websites, particularly in large and complex structures. They are commonly employed in e-commerce platforms to guide users through product categories and subcategories. Content-heavy websites, such as news or educational portals, use breadcrumbs to help users navigate through articles or courses. Breadcrumbs are also beneficial for SEO, as search engines can use them to understand the hierarchical structure of a website, potentially improving search rankings.</p>
+    <a href="https://www.w3.org/WAI/ARIA/apg/patterns/breadcrumb/" target="_blank">Breadcrumps Component Reference</a>
+    <div class=" containr d-flex justify-content-center">     
+        <ul class="pagination shadow-lg">
+            <li class="page-item "><a class="page-link" href="#"><i class="fa fa-home "></i> <small>Home</small>  </a></li>
+            <li class="page-item "><a class="page-link " href="#"><i class="fa fa-file  mr-1  ml-0"></i><small>Files &nbsp; </small></a></li>                 
+            <li class="page-item "><a class="page-link" href="#"><i  class="fa fa-image mr-1"></i><small>Image</small></a></li>                         
+            <li class="page-item  "><a class="page-link" href="#"><i  class="fa fa-video-camera mr-1"></i><small>Videos</small></a></li>                        
+    </div>
+    <hr>
+    <h1><center>Progress bar component</center></h1>
+    <h2>Defination</h2>
+    <p class="m-4">A progress bar component in web development is a visual indicator that illustrates the completion status of a task or process. Typically presented as a horizontal bar, it visually conveys the progress from the starting point to the completion point, providing users with a clear understanding of how much of a task has been accomplished. Progress bars are widely used to enhance user experience, particularly in scenarios where users need to wait for processes to finish, such as file uploads, form submissions, or software installations.</p>
+    <h2>Functionality</h2>
+    <p class="m-4">In terms of functionality, a progress bar dynamically updates its appearance to reflect the ongoing progress of a task. The length of the bar or a filled portion within the bar represents the completed percentage of the task. As the task progresses, the progress bar may be accompanied by textual information, such as the percentage completed or a description of the current phase.</p>
+    <h2>Uses</h2>
+    <p class="m-4">Progress bars find extensive use in web applications to keep users informed and engaged during time-consuming operations. For example, during a file upload, a progress bar informs users about the upload status and estimated time remaining. Similarly, in online forms, progress bars can guide users through multi-step processes, indicating which steps are completed and how many are remaining. The visual feedback from progress bars helps manage user expectations and reduces perceived wait times.</p>
+    <a href="https://drive.google.com/drive/u/0/home" target="_blank">Progress bar reference</a>
+    <br>
+    <br>
+    <div id="myProgress">
+        <div id="myBar"></div>
+    </div>
+    <br>
+    <button onclick="move()">Click Me</button>
+    <hr>
+    <h1><center>Date component</center></h1>
+    <h2>Defination</h2>
+    <p class="m-4">A date picker component in web development is a user interface element that facilitates the selection of dates from a graphical calendar interface. It provides users with an interactive and intuitive way to choose dates, often eliminating the need for manual date entry. Date pickers are commonly used in web forms, reservation systems, and other scenarios where precise date selection is required.</p>
+    <h2>Functionality</h2>
+    <p class="m-4">Functionally, a date picker allows users to navigate through a calendar, typically displayed in a pop-up or inline format, and choose a specific date by clicking on it. It may include controls such as arrows or drop-downs to switch between months and years, ensuring flexibility for users to navigate through different date ranges. Date pickers often offer additional features, such as the ability to highlight or disable certain dates, providing context-specific functionality.</p>
+    <h2>Uses</h2>
+    <p class="m-4">The uses of date picker components are diverse and widespread in web applications. In booking and reservation systems, users can easily select arrival and departure dates. In forms that require date input, such as user registrations or event bookings, date pickers streamline the input process and reduce errors associated with manual date entry. Date pickers also contribute to a consistent user experience, ensuring that date formats are standardized and reducing the cognitive load on users.</p> 
+    <div id="custom-container">
+        <label for="datepicker" class="datepicker-label">Select a Date:</label>
+        <input type="date" id="datepicker" name="datepicker" class="styled-datepicker">
+    </div>
+    <br>
+    <hr>
+    <h1><center>Toggle Button</center></h1>
+    <h2>Defination</h2>
+    <p class="m-4">A toggle button, also referred to as a switch or toggle switch, is a graphical user interface element employed to facilitate the toggling between two distinct states. These states typically represent binary options, such as on/off or active/inactive. The toggle button is designed to provide users with a visually intuitive means of activating or deactivating a specific feature, setting, or function within an application or interface. Its primary characteristic is the ability to switch between two clearly defined states with a simple user interaction, often through a click or tap.</p>
+    <h2>Functionality</h2>
+    <p class="m-4">The functionality of a toggle button is grounded in its binary nature. Users can easily transition between the two states by interacting with the button, causing it to toggle from an "on" state to an "off" state and vice versa. This seamless switching mechanism ensures a straightforward and efficient user experience. The visual feedback provided by the toggle button, indicating its current state, enhances user comprehension and interaction. As a fundamental user interface component, the toggle button is versatile and can be implemented across various platforms and applications, contributing to an intuitive and user-friendly design.</p>
+    <h2>Uses</h2>
+    <p class="m-4">Toggle buttons find widespread use across diverse applications and interfaces. They are commonly employed in settings menus of mobile applications, where users can enable or disable specific features with a single tap. Web designers integrate toggle buttons into website interfaces to provide users with interactive control over preferences or viewing options. In desktop applications, toggle buttons serve as efficient tools for activating or deactivating functionalities. Electronic devices, such as smart home controllers or IoT devices, often utilize toggle buttons for user-friendly control of device states. The simplicity and clarity of toggle buttons make them valuable elements in user interface design, streamlining user interactions and enhancing overall usability.</p> 
+    <div id="toggleContainer">
+    <div class="toggle-container">
+      <input type="checkbox" id="toggleBtn" class="toggle-input">
+      <label for="toggleBtn" class="toggle-label">
+        <span class="toggle-thumb"></span>
+        <span class="toggle-text"></span>
+      </label>
+    </div>
+  </div>
+  <br>
+  <hr>
+  <h1><center>User card</center></h1>
+  <h2>Defination</h2>
+    <p class="m-4">A user card is a visual representation of an individual or user within a digital environment, typically designed to showcase key information about that user in a concise and visually appealing manner. It often includes details such as the user's name, role, affiliations, and relevant social links. User cards are commonly used in websites, applications, and online platforms to provide a quick overview of a person's identity and background.</p>
+    <h2>Functionality</h2>
+    <p class="m-4">The primary functionality of a user card is to present essential information about an individual in a compact and accessible format. It serves as a user interface element that allows others to quickly grasp key details about the person without navigating to a separate profile page. User cards often incorporate images, icons, and links to social media profiles, enabling efficient communication and interaction. Additionally, user cards may feature interactive elements, such as buttons, to initiate actions like contacting the user or accessing more detailed information.</p>
+    <h2>Uses</h2>
+    <p class="m-4">User cards find widespread use in various digital contexts, contributing to a seamless and user-friendly experience. Some common uses include social media platforms, where user cards provide snapshots of profiles, facilitating connections and networking. Additionally, user cards are employed in professional websites, educational platforms, and forums to display information about members, promoting engagement and collaboration. The compact nature of user cards makes them particularly suitable for displaying multiple profiles on a single page, enhancing the overall usability of digital interfaces.</p> 
+    <a href="https://www.facebook.com/privacy/center/?entry_point=facebook_bookmarks" target="_blank">User card reference</a>
+    <section class="custom-card-container">
+      <div class="custom-card">
+          <img src="D:\Bootstrap\bootstrap\media\sample.jpg" alt="Pavan">
+          <h1>Pavan Kumar</h1>
+          <p class="custom-card-title">Department of Information Technology</p>
+          <p>Bapatla Engineering College</p>
+          <div style="margin: 24px 0;">
+              <a href="#" class="custom-card-link"><i class="fa fa-dribbble"></i></a> 
+              <a href="#" class="custom-card-link"><i class="fa fa-twitter"></i></a>  
+              <a href="#" class="custom-card-link"><i class="fa fa-linkedin"></i></a>  
+              <a href="#" class="custom-card-link"><i class="fa fa-facebook"></i></a> 
+          </div>
+          <p><button class="custom-card-button bg-dark">Contact</button></p>
+      </div>
+  </section>
+</body>
